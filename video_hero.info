@@ -1,0 +1,4 @@
+type = module
+name = Video Hero Block
+description = A hero block with a video background.
+backdrop = 1.x
