@@ -1,26 +1,15 @@
-The Name of Foo Module
-======================
+Video Hero
+==========
 
-Foo project enables you to do bar. The first paragraph of this file should be
-kept short as it will be used as the project summary on backdropcms.org. Aim for
-about 240 characters (three lines at 80 characters each).
-
-All lines in this file should be no more than 80 characters long for legibility,
-unless including a URL or example that requires the line not wrap. (The first
-line of this paragraph is 80 characters for reference.)
-
-Detail in READMEs should be limited to the minimum required for installation and
-getting started. More detailed documentation should be moved to a GitHub wiki
-page: https://github.com/backdrop-contrib/setup/wiki/Documentation.
+This module provides a video hero block that can be added to any layout. The
+Video Hero block adds your video as a background for your block. A block title
+and text can be overlayed over the top of the video.
 
 
 Requirements
 ------------
 
-This module requires that the following modules are also enabled:
-
- * [Bar](https://github.com/backdrop-contrib/bar)
- * [Baz](https://github.com/backdrop-contrib/baz)
+* no requirements
 
 Installation
 ------------
@@ -28,37 +17,31 @@ Installation
 - Install this module using the official Backdrop CMS instructions at
   https://backdropcms.org/guide/modules.
 
-- Visit the configuration page under Administration > Configuration > Category >
-  Foo (admin/config/category/foo) and enter the required information.
-
-- Any additional steps.
+- Add a Video Hero block to any layout.
 
 Documentation
 -------------
 
 Additional documentation is located in the Wiki:
-https://github.com/backdrop-contrib/foo-project/wiki/Documentation.
+https://github.com/backdrop-contrib/video_hero/wiki/Documentation.
 
 Issues
 ------
 
 Bugs and Feature requests should be reported in the Issue Queue:
-https://github.com/backdrop-contrib/foo-project/issues.
+https://github.com/backdrop-contrib/video_hero/issues.
 
 Current Maintainers
 -------------------
 
-- [Chris Brown](https://github.com/username).
-- [Pat Smith](https://github.com/username).
+- [Jen Lampton](https://github.com/jenlampton).
 - Seeking additional maintainers.
 
 Credits
 -------
 
-- Ported to Backdrop CMS by [Alex Baker](https://github.com/username).
-- Originally written for Drupal by [Taylor Young](https://github.com/username).
-- Based on the [MagicalCode project](https://github.com/example).
-- Sponsored by [TechNoCorp](https://example.com)
+- Written for Backdrop CMS by [Jen Lampton](https://github.com/jenlampton).
+- Sponsored by [NorCal Hunter Jumper Association](https://www.norcalhunterjumpers.com)
 
 License
 -------
