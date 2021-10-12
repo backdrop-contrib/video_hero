@@ -14,6 +14,11 @@ class BlockVideoHero extends BlockText {
 
     $this->settings += array(
       'video' => '',
+      'options' => array(
+        'controls' => 1,
+        'autoplay' => 0,
+        'loop' => 0,
+      ),
     );
   }
 
@@ -44,8 +49,26 @@ class BlockVideoHero extends BlockText {
       return check_markup(token_replace($this->settings['content']), $this->settings['format'], '', TRUE);
     }
     elseif (!empty($this->settings['video'])) {
-      $url = trim($this->settings['video']);
-      $output .= '<iframe width="560" height="315" src="' . $url . '?controls=0&autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" allowfullscreen></iframe>';
+      $url = url(trim($this->settings['video']), array('query' => $this->settings['options']));
+
+      //$url .= '?controls=0&autoplay=1&loop=1';
+      $allow = array(
+        'accelerometer',
+        'autoplay',
+        'clipboard-write',
+        'encrypted-media',
+        'gyroscope',
+      );
+      $attributes = array(
+        'width' => '560',
+        'height' => '315',
+        'src' => $url,
+        'title' => t('YouTube video player'),
+        'frameborder' => '0',
+        'allow' => implode('; ', $allow),
+        'allowfullscreen' => TRUE,
+      );
+      $output .= '<iframe ' . backdrop_attributes($attributes) . '></iframe>';
     }
     elseif (!empty($this->settings['title'])) {
       $output .= '&nbsp;';
@@ -60,12 +83,25 @@ class BlockVideoHero extends BlockText {
   function form(&$form, &$form_state) {
     parent::form($form, $form_state);
 
-    // Add an image field at the top of the settings form.
+    // Add a video field at the top of the settings form.
     $form['video'] = array(
       '#type' => 'textfield',
       '#title' => t('Background video'),
       '#description' => 'YouTube video URL in the format https://www.youtube.com/embed/j16T_QlAPRc',
       '#default_value' => $this->settings['video'],
+      '#weight' => -10,
+    );
+
+    // Add an image field at the top of the settings form.
+    $form['options'] = array(
+      '#type' => 'checkboxes',
+      '#title' => t('Player options'),
+      '#options' => array(
+        'controls' => t('Show controls'),
+        'autoplay' => t('Autoplay video'),
+        'loop' => t('Loop video'),
+      ),
+      '#default_value' => $this->settings['options'],
       '#weight' => -10,
     );
 
